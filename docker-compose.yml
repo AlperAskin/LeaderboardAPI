@@ -1,0 +1,19 @@
+services:
+  leaderboard:
+    container_name: Leaderboard_Main
+    image: ${DOCKER_REGISTRY-}leaderboard
+    build:
+      context: .
+      dockerfile: Leaderboard/Dockerfile
+
+  leaderboarddata:
+    container_name: leaderboarddata
+    image: postgres:15.4
+
+  pgadmin:
+    container_name: leaderboardpgadmin
+    image: dpage/pgadmin4:latest
+  
+  redis:
+   container_name: redis
+   image: redis:latest
